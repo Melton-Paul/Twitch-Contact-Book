@@ -1,0 +1,12 @@
+.contactForm {
+  font-size: 1.5rem;
+}
+.contactForm input {
+  border-radius: 10px;
+  border: none;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.contactForm label {
+}
