@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ContactForm.module.css";
+import Button from "../UI/Button/Button";
 
 export default function ContactForm(props) {
   const [formData, setFormData] = React.useState({
@@ -10,7 +11,12 @@ export default function ContactForm(props) {
     age: null,
   });
 
-  function handleSubmit() {}
+  function handleSubmit() {
+    fetch(
+      "https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json",
+      { method: "POST", body: JSON.stringify(formData) }
+    );
+  }
   function changeHandler(e) {
     const { value, name } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -76,7 +82,7 @@ export default function ContactForm(props) {
           placeholder=">13"
         />
       </div>
-      <button>Submit</button>
+      <Button>Submit</Button>
     </form>
   );
 }
