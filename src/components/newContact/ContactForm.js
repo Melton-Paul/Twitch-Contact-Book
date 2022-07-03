@@ -11,14 +11,21 @@ export default function ContactForm(props) {
     realName: "",
     favoriteGame: "",
     age: null,
+    submitted: false,
   });
 
   const twitchNameValid = formData.twitchName.trim().length !== 0;
   const roleValid = formData.role.trim().length !== 0;
+  const formValid = twitchNameValid && roleValid ? true : false;
 
   function handleSubmit(e) {
     e.preventDefault();
-    setFormData((prev) => ({ ...prev, nameTouched: true, roleTouched: true }));
+    setFormData((prev) => ({
+      ...prev,
+      nameTouched: true,
+      roleTouched: true,
+      submitted: true,
+    }));
     if (formData.twitchName.trim().length === 0) {
       return;
     }
@@ -27,6 +34,17 @@ export default function ContactForm(props) {
       "https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json",
       { method: "POST", body: JSON.stringify(formData) }
     );
+
+    setFormData({
+      twitchName: "",
+      nameTouched: false,
+      role: "",
+      roleTouched: false,
+      realName: "",
+      favoriteGame: "",
+      age: null,
+      submitted: false,
+    });
   }
   function changeHandler(e) {
     const { value, name } = e.target;
@@ -43,7 +61,7 @@ export default function ContactForm(props) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.contactForm}>
-      <div>
+      <div className={styles["contactForm-input__group"]}>
         <label htmlFor="twitchnameInput">Twitch Name:</label>
         <input
           type="text"
@@ -54,11 +72,11 @@ export default function ContactForm(props) {
           placeholder="Twitch Name"
           onBlur={blurHandler}
         />
+        {formData.nameTouched && !twitchNameValid && (
+          <p className={styles.invalid}>Twitch name can not be empty.</p>
+        )}
       </div>
-      {formData.nameTouched && !twitchNameValid && (
-        <p>Twitch name can not be empty.</p>
-      )}
-      <div>
+      <div className={styles["contactForm-input__group"]}>
         <label htmlFor="roleInput">Role (Viewer, Streamer, ect.):</label>
         <input
           type="text"
@@ -69,8 +87,10 @@ export default function ContactForm(props) {
           placeholder="Role"
           onBlur={blurHandler}
         />
+        {formData.roleTouched && !roleValid && (
+          <p className={styles.invalid}>Role can not be empty.</p>
+        )}
       </div>
-      {formData.roleTouched && !roleValid && <p>Role can not be empty.</p>}
       <div>
         <label htmlFor="realnameInput">Real Name:</label>
         <input
@@ -108,6 +128,9 @@ export default function ContactForm(props) {
         />
       </div>
       <Button>Submit</Button>
+      {!formValid && formData.submitted && (
+        <p className="invalid">Please fix issues above.</p>
+      )}
     </form>
   );
 }
