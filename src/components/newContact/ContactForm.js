@@ -5,13 +5,24 @@ import Button from "../UI/Button/Button";
 export default function ContactForm(props) {
   const [formData, setFormData] = React.useState({
     twitchName: "",
+    nameTouched: false,
     role: "",
+    roleTouched: false,
     realName: "",
     favoriteGame: "",
     age: null,
   });
 
-  function handleSubmit() {
+  const twitchNameValid = formData.twitchName.trim().length !== 0;
+  const roleValid = formData.role.trim().length !== 0;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setFormData((prev) => ({ ...prev, nameTouched: true, roleTouched: true }));
+    if (formData.twitchName.trim().length === 0) {
+      return;
+    }
+
     fetch(
       "https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json",
       { method: "POST", body: JSON.stringify(formData) }
@@ -20,6 +31,14 @@ export default function ContactForm(props) {
   function changeHandler(e) {
     const { value, name } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  }
+  function blurHandler(e) {
+    const { name } = e.target;
+    if (name === "twitchName") {
+      setFormData((prev) => ({ ...prev, nameTouched: true }));
+    } else {
+      setFormData((prev) => ({ ...prev, roleTouched: true }));
+    }
   }
 
   return (
@@ -33,19 +52,25 @@ export default function ContactForm(props) {
           id="twitchnameInput"
           value={formData.twitchName}
           placeholder="Twitch Name"
+          onBlur={blurHandler}
         />
       </div>
+      {formData.nameTouched && !twitchNameValid && (
+        <p>Twitch name can not be empty.</p>
+      )}
       <div>
-        <label htmlFor="titleInput">Title (Viewer, Streamer, ect.):</label>
+        <label htmlFor="roleInput">Role (Viewer, Streamer, ect.):</label>
         <input
           type="text"
           name="role"
           onChange={changeHandler}
-          id="titleInput"
+          id="roleInput"
           value={formData.role}
-          placeholder="Title"
+          placeholder="Role"
+          onBlur={blurHandler}
         />
       </div>
+      {formData.roleTouched && !roleValid && <p>Role can not be empty.</p>}
       <div>
         <label htmlFor="realnameInput">Real Name:</label>
         <input
