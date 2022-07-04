@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 4rem;
-  background: lightgrey;
-  color: white;
+  background: rgb(247, 229, 229);
+  color: rgb(31, 31, 29);
   align-items: center;
 }
 
@@ -18,7 +18,7 @@
 }
 .navbar ul a {
   text-decoration: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .navbar ul a:hover {
   opacity: 0.8;
