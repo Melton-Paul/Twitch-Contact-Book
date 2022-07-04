@@ -26,7 +26,7 @@ export default function ContactForm(props) {
       roleTouched: true,
       submitted: true,
     }));
-    if (formData.twitchName.trim().length === 0) {
+    if (!formValid) {
       return;
     }
 

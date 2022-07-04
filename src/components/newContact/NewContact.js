@@ -5,8 +5,13 @@ import styles from "./NewContact.module.css";
 
 export default function NewContact(props) {
   return (
-    <Card className={styles.NewContact}>
-      <ContactForm />
-    </Card>
+    <>
+      <h2 className={styles.title}>
+        Create Contact <span className={styles.line}></span>{" "}
+      </h2>
+      <Card className={styles.NewContact}>
+        <ContactForm />
+      </Card>
+    </>
   );
 }

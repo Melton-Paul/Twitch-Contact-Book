@@ -3,3 +3,24 @@
   margin: 2rem;
   color: black;
 }
+.title {
+  margin-left: 3rem;
+  position: relative;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  font-size: 3rem;
+}
+
+.title .line {
+  position: absolute;
+  bottom: -12px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 150px;
+  height: 6px;
+  background: lavender;
+  border-radius: 20px;
+}
