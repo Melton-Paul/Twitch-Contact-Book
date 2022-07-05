@@ -1,28 +1,18 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Contact from "./Contact";
 
 export default function ViewContacts(props) {
-  const [contactData, setContactData] = React.useState({});
-
-  const getData = useCallback(() => {
-    fetch("https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json")
-      .then((res) => res.json())
-      .then((data) => setContactData(data));
-  }, []);
-
-  React.useEffect(() => {
-    getData();
-  }, [getData]);
-
-  console.log(contactData);
   const dataHtml = [];
-  for (const contact in contactData) {
+  for (const contact in props.contactData) {
     dataHtml.push(
       <Contact
-        twitch={contactData[contact].twitchName}
-        role={contactData[contact].role}
-        age={contactData[contact].age}
-        name={contactData[contact].realName}
+        twitch={props.contactData[contact].twitchName}
+        role={props.contactData[contact].role}
+        age={props.contactData[contact].age}
+        name={props.contactData[contact].realName}
+        game={props.contactData[contact].favoriteGame}
+        key={contact}
+        id={contact}
       />
     );
   }

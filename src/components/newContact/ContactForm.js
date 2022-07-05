@@ -6,13 +6,14 @@ export default function ContactForm(props) {
   const [formData, setFormData] = React.useState({
     twitchName: "",
     nameTouched: false,
-    role: "",
+    role: "Viewer",
     roleTouched: false,
     realName: "",
     favoriteGame: "",
-    age: null,
+    age: 13,
     submitted: false,
   });
+  console.log(formData);
 
   const twitchNameValid = formData.twitchName.trim().length !== 0;
   const roleValid = formData.role.trim().length !== 0;
@@ -42,9 +43,10 @@ export default function ContactForm(props) {
       roleTouched: false,
       realName: "",
       favoriteGame: "",
-      age: null,
+      age: 13,
       submitted: false,
     });
+    props.getData();
   }
   function changeHandler(e) {
     const { value, name } = e.target;
@@ -78,15 +80,15 @@ export default function ContactForm(props) {
       </div>
       <div className={styles["contactForm-input__group"]}>
         <label htmlFor="roleInput">Role (Viewer, Streamer, ect.):</label>
-        <input
-          type="text"
+        <select
           name="role"
-          onChange={changeHandler}
           id="roleInput"
-          value={formData.role}
-          placeholder="Role"
+          onChange={changeHandler}
           onBlur={blurHandler}
-        />
+        >
+          <option value="Viewer">Viewer</option>
+          <option value="Streamer">Streamer</option>
+        </select>
         {formData.roleTouched && !roleValid && (
           <p className={styles.invalid}>Role can not be empty.</p>
         )}

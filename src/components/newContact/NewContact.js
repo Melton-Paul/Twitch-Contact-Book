@@ -10,7 +10,7 @@ export default function NewContact(props) {
         Create Contact <span className={styles.line}></span>{" "}
       </h2>
       <Card className={styles.NewContact}>
-        <ContactForm />
+        <ContactForm getData={props.getData} />
       </Card>
     </>
   );

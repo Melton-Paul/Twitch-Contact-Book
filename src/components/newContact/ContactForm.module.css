@@ -7,6 +7,12 @@
   margin: 1rem;
   padding: 0.5rem 1rem;
 }
+.contactForm select {
+  border-radius: 10px;
+  border: none;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+}
 
 .invalid {
   color: rgba(238, 128, 201, 0.692);

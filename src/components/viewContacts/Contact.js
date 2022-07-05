@@ -4,11 +4,11 @@ import Card from "../UI/Card/Card";
 export default function Contact(props) {
   return (
     <Card>
-      <h3>{props.twitch}</h3>
+      <h3>{props.twitch.toUpperCase()}</h3>
       <p>{props.role}</p>
-      <p>{props.name}</p>
-      <p>{props.game}</p>
-      <p>{props.age}</p>
+      <p>Real Name: {props.name}</p>
+      <p>Favorite Game: {props.game.toUpperCase()}</p>
+      <p>{props.age} years old</p>
     </Card>
   );
 }
