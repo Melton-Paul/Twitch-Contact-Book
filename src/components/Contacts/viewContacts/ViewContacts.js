@@ -1,5 +1,6 @@
 import React from "react";
 import Contact from "./Contact";
+import styles from "./ViewContacts.module.css";
 
 export default function ViewContacts(props) {
   const dataHtml = [];
@@ -16,5 +17,12 @@ export default function ViewContacts(props) {
       />
     );
   }
-  return <div>{dataHtml}</div>;
+  return (
+    <div>
+      <h2 className={styles.title}>
+        Contacts<span className={styles.line}></span>
+      </h2>
+      {dataHtml}
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ContactForm.module.css";
-import Button from "../UI/Button/Button";
+import Button from "../../UI/Button/Button";
 
 export default function ContactForm(props) {
   const [formData, setFormData] = React.useState({
@@ -16,8 +16,7 @@ export default function ContactForm(props) {
   console.log(formData);
 
   const twitchNameValid = formData.twitchName.trim().length !== 0;
-  const roleValid = formData.role.trim().length !== 0;
-  const formValid = twitchNameValid && roleValid ? true : false;
+  const formValid = twitchNameValid ? true : false;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,7 +38,7 @@ export default function ContactForm(props) {
     setFormData({
       twitchName: "",
       nameTouched: false,
-      role: "",
+      role: "Viewer",
       roleTouched: false,
       realName: "",
       favoriteGame: "",
@@ -85,13 +84,11 @@ export default function ContactForm(props) {
           id="roleInput"
           onChange={changeHandler}
           onBlur={blurHandler}
+          value={formData.role}
         >
           <option value="Viewer">Viewer</option>
           <option value="Streamer">Streamer</option>
         </select>
-        {formData.roleTouched && !roleValid && (
-          <p className={styles.invalid}>Role can not be empty.</p>
-        )}
       </div>
       <div>
         <label htmlFor="realnameInput">Real Name:</label>

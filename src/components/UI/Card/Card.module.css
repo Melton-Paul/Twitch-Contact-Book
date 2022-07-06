@@ -1,4 +1,5 @@
 .card {
   border-radius: 15px;
   padding: 2rem;
+  max-width: 800px;
 }

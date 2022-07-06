@@ -7,6 +7,9 @@
   color: rgb(31, 31, 29);
   align-items: center;
 }
+.navbar__brand {
+  font-size: 1.3rem;
+}
 
 .navbar ul {
   list-style-type: none;
@@ -19,6 +22,7 @@
 .navbar ul a {
   text-decoration: none;
   color: rgb(0, 0, 0);
+  font-size: 1.4rem;
 }
 .navbar ul a:hover {
   opacity: 0.8;

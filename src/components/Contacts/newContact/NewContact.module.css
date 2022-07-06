@@ -1,10 +1,9 @@
 .NewContact {
   background: lavender;
-  margin: 2rem;
   color: black;
+  width: 100%;
 }
 .title {
-  margin-left: 3rem;
   position: relative;
   width: auto;
   display: flex;
