@@ -1,0 +1,22 @@
+.title {
+  margin-left: 3rem;
+  position: relative;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+h2 {
+  font-size: 3rem;
+}
+
+.title .line {
+  position: absolute;
+  bottom: -12px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100px;
+  height: 6px;
+  background: rgb(247, 229, 229);
+  border-radius: 20px;
+}
