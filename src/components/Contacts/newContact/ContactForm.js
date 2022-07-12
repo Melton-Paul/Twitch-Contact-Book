@@ -1,17 +1,19 @@
 import React from "react";
 import styles from "./ContactForm.module.css";
 import Button from "../../UI/Button/Button";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ContactForm(props) {
   const [formData, setFormData] = React.useState({
-    twitchName: "",
+    twitchName: props.twitchName || "",
     nameTouched: false,
-    role: "Viewer",
+    role: props.role || "Viewer",
     roleTouched: false,
-    realName: "",
-    favoriteGame: "",
-    age: 13,
+    realName: props.realName || "",
+    favoriteGame: props.game || "",
+    age: props.age || 13,
     submitted: false,
+    id: props.id || uuidv4(),
   });
   console.log(formData);
 
@@ -30,22 +32,21 @@ export default function ContactForm(props) {
       return;
     }
 
-    fetch(
-      "https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json",
-      { method: "POST", body: JSON.stringify(formData) }
-    );
+    props.addData(formData);
 
-    setFormData({
-      twitchName: "",
-      nameTouched: false,
-      role: "Viewer",
-      roleTouched: false,
-      realName: "",
-      favoriteGame: "",
-      age: 13,
-      submitted: false,
-    });
-    props.getData();
+    if (!props.editing) {
+      setFormData({
+        twitchName: "",
+        nameTouched: false,
+        role: "Viewer",
+        roleTouched: false,
+        realName: "",
+        favoriteGame: "",
+        age: 13,
+        submitted: false,
+        id: uuidv4(),
+      });
+    }
   }
   function changeHandler(e) {
     const { value, name } = e.target;

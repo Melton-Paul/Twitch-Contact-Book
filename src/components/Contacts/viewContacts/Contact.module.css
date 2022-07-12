@@ -41,3 +41,12 @@
 .delete:hover {
   opacity: 0.4;
 }
+
+.editContact {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.editContact:hover {
+  opacity: 1;
+}
