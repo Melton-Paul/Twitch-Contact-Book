@@ -4,15 +4,16 @@ import Card from "../../UI/Card/Card";
 import ContactForm from "../newContact/ContactForm";
 
 export default function Contact(props) {
-  const [contactData, setContactData] = React.useState({ ...props.data });
   const [isEditable, setIsEditable] = React.useState(false);
+
+  console.log(props);
 
   function editInfo() {
     setIsEditable((prev) => !prev);
   }
 
   function deleteContact() {
-    props.removeData(contactData.id);
+    props.removeData(props.data.id);
   }
 
   return (
@@ -24,14 +25,15 @@ export default function Contact(props) {
               Stop Editing
             </span>
             <ContactForm
-              realName={contactData.realName}
-              game={contactData.favoriteGame}
-              age={contactData.age}
-              twitchName={contactData.twitchName}
-              role={contactData.role}
+              realName={props.data.realName}
+              game={props.data.favoriteGame}
+              age={props.data.age}
+              twitchName={props.data.twitchName}
+              role={props.data.role}
               addData={props.addData}
-              id={contactData.id}
+              id={props.data.id}
               editing={true}
+              save={editInfo}
             />
           </>
         ) : (
@@ -42,12 +44,12 @@ export default function Contact(props) {
             <span className={styles.delete} onClick={deleteContact}>
               X
             </span>
-            <h3>{contactData.twitchName.toUpperCase()}</h3>
-            <p className={styles.role}>{contactData.role}</p>
+            <h3>{props.data.twitchName.toUpperCase()}</h3>
+            <p className={styles.role}>{props.data.role}</p>
             <div className={styles.info}>
-              <p>Real Name: {contactData.realName}</p>
-              <p>Favorite Game: {contactData.favoriteGame.toUpperCase()}</p>
-              <p>Age: {contactData.age} years old</p>
+              <p>Real Name: {props.data.realName}</p>
+              <p>Favorite Game: {props.data.favoriteGame.toUpperCase()}</p>
+              <p>Age: {props.data.age} years old</p>
             </div>
           </>
         )}

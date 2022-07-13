@@ -9,6 +9,7 @@ export default function ContactPage(props) {
   console.log(contactData);
 
   function addData(data) {
+    console.log(data);
     if (contactData.find((item) => item.id === data.id)) {
       setContactData((prev) => {
         return prev.map((item) => {
@@ -18,8 +19,6 @@ export default function ContactPage(props) {
     } else {
       setContactData((prev) => [...prev, data]);
     }
-
-    // setContactData((prev) => [...prev, data]);
   }
 
   function removeData(id) {
@@ -47,7 +46,6 @@ export default function ContactPage(props) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         for (let entry in data) {
           setContactData((prev) => [...prev, data[entry]]);
         }
