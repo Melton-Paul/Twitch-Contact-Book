@@ -8,7 +8,6 @@ export default function ContactForm(props) {
     twitchName: props.twitchName || "",
     nameTouched: false,
     role: props.role || "Viewer",
-    roleTouched: false,
     realName: props.realName || "",
     favoriteGame: props.game || "",
     age: props.age || 13,
@@ -23,9 +22,9 @@ export default function ContactForm(props) {
     setFormData((prev) => ({
       ...prev,
       nameTouched: true,
-      roleTouched: true,
       submitted: true,
     }));
+
     if (!formValid) {
       return;
     }
@@ -37,7 +36,6 @@ export default function ContactForm(props) {
         twitchName: "",
         nameTouched: false,
         role: "Viewer",
-        roleTouched: false,
         realName: "",
         favoriteGame: "",
         age: 13,
@@ -48,14 +46,22 @@ export default function ContactForm(props) {
   }
   function changeHandler(e) {
     const { value, name } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "age") {
+      if (value < 0) {
+        setFormData((prev) => ({ ...prev, age: 0 }));
+      } else if (value > 99) {
+        setFormData((prev) => ({ ...prev, age: 100 }));
+      } else {
+        setFormData((prev) => ({ ...prev, age: value }));
+      }
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   }
   function blurHandler(e) {
     const { name } = e.target;
     if (name === "twitchName") {
       setFormData((prev) => ({ ...prev, nameTouched: true }));
-    } else {
-      setFormData((prev) => ({ ...prev, roleTouched: true }));
     }
   }
 

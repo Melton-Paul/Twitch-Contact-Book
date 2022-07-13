@@ -6,10 +6,8 @@ let firstIteration = true;
 
 export default function ContactPage(props) {
   const [contactData, setContactData] = React.useState([]);
-  console.log(contactData);
 
   function addData(data) {
-    console.log(data);
     if (contactData.find((item) => item.id === data.id)) {
       setContactData((prev) => {
         return prev.map((item) => {
@@ -22,7 +20,6 @@ export default function ContactPage(props) {
   }
 
   function removeData(id) {
-    console.log("Removing...");
     setContactData((prev) => {
       return prev.filter((contact) => contact.id !== id);
     });

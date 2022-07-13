@@ -2,10 +2,7 @@ import React from "react";
 import Contact from "./Contact";
 import styles from "./ViewContacts.module.css";
 
-// <Contact data={props.contactData[contact]} key={contact} id={contact} />
-
 export default function ViewContacts(props) {
-  console.log(props);
   const dataHtml = props.contactData.map((contact) => (
     <Contact
       data={contact}

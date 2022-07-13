@@ -7,8 +7,6 @@ export default function Contact(props) {
   const [isEditable, setIsEditable] = React.useState(false);
   const [deleting, setDeleting] = React.useState(false);
 
-  console.log(props);
-
   function editInfo() {
     setIsEditable((prev) => !prev);
   }

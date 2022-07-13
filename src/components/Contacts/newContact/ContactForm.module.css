@@ -18,7 +18,7 @@
 }
 
 .invalid {
-  color: rgba(238, 128, 201, 0.692);
+  color: rgb(151, 151, 231);
   border: black;
   font-weight: bold;
   border: 2px solid rgb(182, 182, 216);

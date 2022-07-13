@@ -1,5 +1,6 @@
 .contact {
-  background: rgb(247, 229, 229);
+  background: lavender;
+  border: 5px solid rgb(247, 229, 229);
   font-size: 1.4rem;
   display: flex;
   flex-direction: column;

@@ -1,17 +1,20 @@
 .button {
   border-radius: 15px;
   padding: 1rem 2rem;
-  background: lightyellow;
-  border: 3px solid rgb(247, 229, 229);
+  background: transparent;
+  border: 3px solid lightyellow;
   cursor: pointer;
-  color: lavender;
   box-shadow: 0px 0px 5px #c5c5c5;
   font-weight: bold;
+  color: lightyellow;
+  border-color: lightyellow;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 
 .button:hover {
-  background: transparent;
-  color: lightyellow;
+  background: lightgoldenrodyellow;
+  color: lavender;
   border-color: lightyellow;
   text-shadow: none;
 }
