@@ -33,7 +33,11 @@ export default function ContactPage(props) {
     fetch(
       "https://contactbook-759bd-default-rtdb.firebaseio.com/contacts.json",
       { method: "PUT", body: JSON.stringify(contactData) }
-    );
+    )
+      .then((res) => res.json())
+      .catch((error) => {
+        console.log("Error: Failed to send contact data - " + error);
+      });
   }, [contactData]);
 
   React.useEffect(() => {
