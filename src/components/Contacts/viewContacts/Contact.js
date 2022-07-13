@@ -5,6 +5,7 @@ import ContactForm from "../newContact/ContactForm";
 
 export default function Contact(props) {
   const [isEditable, setIsEditable] = React.useState(false);
+  const [deleting, setDeleting] = React.useState(false);
 
   console.log(props);
 
@@ -14,6 +15,9 @@ export default function Contact(props) {
 
   function deleteContact() {
     props.removeData(props.data.id);
+  }
+  function askToDelete() {
+    setDeleting(true);
   }
 
   return (
@@ -38,10 +42,26 @@ export default function Contact(props) {
           </>
         ) : (
           <>
+            {deleting && (
+              <div className={styles["delete-module"]}>
+                <h2>Are you sure you want to delete this contact?</h2>
+                <p>This action cannot be reversed</p>
+                <div className={styles["button-container"]}>
+                  <button onClick={deleteContact}>Yes</button>
+                  <button
+                    onClick={() => {
+                      setDeleting(false);
+                    }}
+                  >
+                    No
+                  </button>
+                </div>
+              </div>
+            )}
             <span className={styles.editContact} onClick={editInfo}>
               Edit
             </span>
-            <span className={styles.delete} onClick={deleteContact}>
+            <span className={styles.delete} onClick={askToDelete}>
               X
             </span>
             <h3>{props.data.twitchName.toUpperCase()}</h3>

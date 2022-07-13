@@ -6,8 +6,7 @@
   align-items: center;
   position: relative;
   margin: 1rem auto;
-}
-.username {
+  overflow: hidden;
 }
 
 .role {
@@ -28,23 +27,67 @@
   top: 11%;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid rgb(250, 168, 243);
-  width: 25px;
-  height: 24px;
+  border: 1px solid rgb(151, 151, 231);
+  width: 19px;
+  height: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(250, 168, 243);
+  color: rgb(151, 151, 231);
   opacity: 0.7;
+  font-size: 1.1rem;
 }
 
 .delete:hover {
   opacity: 0.4;
 }
 
+.delete-module {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.delete-module h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.delete-module p {
+  margin-top: 0;
+  opacity: 0.8;
+}
+
+.delete-module .button-container button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: none;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.delete-module .button-container button:hover {
+  opacity: 1;
+}
+
 .editContact {
   cursor: pointer;
   opacity: 0.7;
+  position: absolute;
+  bottom: 9%;
+  right: 5.5%;
+  color: rgb(151, 151, 231);
 }
 
 .editContact:hover {
