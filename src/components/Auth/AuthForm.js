@@ -85,7 +85,10 @@ const AuthForm = () => {
       })
       .then((data) => {
         console.log(data);
-        context.loginHandler(data.idToken);
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        context.loginHandler(data.idToken, expirationTime.toISOString());
         passwordReset();
         emailReset();
         navigate("/");
