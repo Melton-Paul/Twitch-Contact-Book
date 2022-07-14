@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-
+import { useNavigate } from "react-router";
 import styles from "./AuthForm.module.css";
 import UseInput from "../../Hooks/use-input";
 import AuthContext from "../../store/auth-context";
@@ -9,6 +9,7 @@ const AuthForm = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const context = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     value: emailValue,
@@ -26,7 +27,7 @@ const AuthForm = () => {
     changeHandler: passwordChangeHandler,
     blurHandler: passwordBlurHandler,
     reset: passwordReset,
-  } = UseInput((value) => value.trim().length > 3);
+  } = UseInput((value) => value.trim().length > 6);
 
   const formValid = emailIsValid && passwordIsValid;
 
@@ -87,6 +88,7 @@ const AuthForm = () => {
         context.loginHandler(data.idToken);
         passwordReset();
         emailReset();
+        navigate("/");
       })
       .catch((err) => {
         setError(err.message);

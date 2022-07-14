@@ -3,9 +3,16 @@ import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../../store/auth-context";
 import Button from "../UI/Button/Button";
+import { useNavigate } from "react-router";
 
 export default function Navbar(props) {
   const context = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function logout() {
+    context.logoutHandler();
+    navigate("/login");
+  }
 
   return (
     <div className={styles.navbar}>
@@ -22,7 +29,7 @@ export default function Navbar(props) {
               <NavLink to="/profile">View Profile</NavLink>
             </li>
             <li>
-              <Button onClick={context.logoutHandler}>Log Out</Button>
+              <Button onClick={logout}>Log Out</Button>
             </li>
           </>
         ) : (
