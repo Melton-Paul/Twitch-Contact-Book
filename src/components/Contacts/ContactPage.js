@@ -1,11 +1,13 @@
 import React from "react";
 import NewContact from "./newContact/NewContact";
 import ViewContacts from "./viewContacts/ViewContacts";
+import Transition from "react-transition-group/Transition";
 
 let firstIteration = true;
 
 export default function ContactPage(props) {
   const [contactData, setContactData] = React.useState([]);
+  const [showCreateContact, setShowCreateContact] = React.useState(false);
 
   function addData(data) {
     if (contactData.find((item) => item.id === data.id)) {
@@ -55,7 +57,10 @@ export default function ContactPage(props) {
 
   return (
     <div className="container">
-      <NewContact addData={addData} />
+      <button onClick={() => setShowCreateContact((prev) => !prev)}>
+        Create New Contact
+      </button>
+      {showCreateContact && <NewContact addData={addData} />}
       <ViewContacts
         contactData={contactData || []}
         addData={addData}

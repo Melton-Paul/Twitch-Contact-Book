@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-let logoutTimer;
-
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
@@ -31,6 +29,7 @@ function retrieveToken() {
 
   return { token: token, duration: remainingTime };
 }
+let logoutTimer;
 
 export function AuthContextProvider(props) {
   const tokenData = retrieveToken();
