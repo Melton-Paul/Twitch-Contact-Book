@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+body {
+  --accent-color: lightyellow;
+  --primary-color: lavender;
+  --tertiary-color: rgb(247, 229, 229);
+  --text-color: black;
+  --background: white;
+  --invalid: rgb(151, 151, 231);
+}
+
 html {
   font-size: 62.5%;
 }

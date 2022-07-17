@@ -18,10 +18,10 @@
 }
 
 .invalid {
-  color: rgb(151, 151, 231);
+  color: var(--invalid);
   border: black;
   font-weight: bold;
-  border: 2px solid rgb(182, 182, 216);
+  border: 2px solid var(--invalid);
   padding: 0.5rem 1rem;
   border-radius: 15px;
   cursor: default;

@@ -1,6 +1,6 @@
 .NewContact {
-  background: lavender;
-  color: black;
+  background: var(--primary-color);
+  color: var(--text-color);
   width: 100%;
 }
 .title {
@@ -20,6 +20,6 @@ h2 {
   transform: translateX(50%);
   width: 150px;
   height: 6px;
-  background: lavender;
+  background: var(--primary-color);
   border-radius: 20px;
 }

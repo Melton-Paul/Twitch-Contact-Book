@@ -23,7 +23,7 @@ export default function Navbar(props) {
         {context.isLoggedIn ? (
           <>
             <li>
-              <NavLink to="/">New Contact</NavLink>
+              <NavLink to="/">Contacts</NavLink>
             </li>
             <li>
               <NavLink to="/profile">View Profile</NavLink>

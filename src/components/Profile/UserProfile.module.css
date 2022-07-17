@@ -1,6 +1,7 @@
 .profile {
   margin: 3rem auto;
   text-align: center;
+  background: var(--primary-color);
 }
 
 .profile h1 {

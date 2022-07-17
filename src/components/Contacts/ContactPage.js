@@ -60,7 +60,9 @@ export default function ContactPage(props) {
       <button onClick={() => setShowCreateContact((prev) => !prev)}>
         Create New Contact
       </button>
-      {showCreateContact && <NewContact addData={addData} />}
+      {(showCreateContact || contactData.length === 0) && (
+        <NewContact addData={addData} />
+      )}
       <ViewContacts
         contactData={contactData || []}
         addData={addData}

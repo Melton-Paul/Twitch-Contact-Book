@@ -1,6 +1,6 @@
 .contact {
-  background: lavender;
-  border: 5px solid rgb(247, 229, 229);
+  background: var(--primary-color);
+  border: 5px solid var(--tertiary-color);
   font-size: 1.4rem;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
 
 .info {
   font-size: 1.3rem;
-  color: #535353;
+  color: var(--text-color);
   text-align: center;
 }
 .delete {
@@ -28,13 +28,13 @@
   top: 11%;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid rgb(151, 151, 231);
+  border: 1px solid var(--invalid);
   width: 19px;
   height: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(151, 151, 231);
+  color: var(--invalid);
   opacity: 0.7;
   font-size: 1.1rem;
 }
@@ -88,7 +88,7 @@
   position: absolute;
   bottom: 9%;
   right: 5.5%;
-  color: rgb(151, 151, 231);
+  color: var(--invalid);
 }
 
 .editContact:hover {

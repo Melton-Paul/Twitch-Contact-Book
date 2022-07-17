@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 4rem;
-  background: rgb(247, 229, 229);
-  color: rgb(31, 31, 29);
+  background: var(--tertiary-color);
+  color: var(--text-color);
   align-items: center;
 }
 .navbar__brand {
@@ -22,7 +22,7 @@
 }
 .navbar a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: var(--text-color);
   font-size: 1.4rem;
 }
 .navbar ul a:hover {

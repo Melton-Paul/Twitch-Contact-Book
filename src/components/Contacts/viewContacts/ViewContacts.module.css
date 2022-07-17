@@ -17,6 +17,6 @@ h2 {
   transform: translateX(50%);
   width: 100px;
   height: 6px;
-  background: rgb(247, 229, 229);
+  background: var(--tertiary-color);
   border-radius: 20px;
 }
