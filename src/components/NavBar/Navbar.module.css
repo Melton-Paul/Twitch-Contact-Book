@@ -6,6 +6,11 @@
   background: var(--tertiary-color);
   color: var(--text-color);
   align-items: center;
+  box-shadow: 0 0 10px 3px #e7e5e5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 .navbar__brand {
   font-size: 1.3rem;
@@ -20,6 +25,7 @@
 .navbar li {
   margin: 0 1rem;
 }
+
 .navbar a {
   text-decoration: none;
   color: var(--text-color);

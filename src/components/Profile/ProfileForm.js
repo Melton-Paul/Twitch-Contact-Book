@@ -1,5 +1,5 @@
 import styles from "./ProfileForm.module.css";
-import UseInput from "../../Hooks/use-input";
+import UseInput from "../../hooks/use-input";
 import AuthContext from "../../store/auth-context";
 import { useContext, useState } from "react";
 import Card from "../UI/Card/Card";
@@ -17,6 +17,7 @@ const ProfileForm = (props) => {
     blurHandler: passwordBlurHandler,
     reset: passwordReset,
   } = UseInput((value) => value.trim().length > 6);
+
   const {
     value: passwordConfirmValue,
     isValid: passwordConfirmIsValid,

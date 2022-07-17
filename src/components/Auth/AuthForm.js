@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import styles from "./AuthForm.module.css";
-import UseInput from "../../Hooks/use-input";
+import UseInput from "../../hooks/use-input";
 import AuthContext from "../../store/auth-context";
 
 const AuthForm = () => {
